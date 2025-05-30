@@ -3,7 +3,7 @@ import "./SearchBar.css";
 export default function SearchBar({ onSearch }) {
   const [search, setSearch] = useState("");
 
-  const handleSearch = (e) => {
+  const handleSearch = () => {
     if (search.trim()) {
       onSearch(search.trim().toLowerCase());
     }
@@ -16,16 +16,19 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <div>
+    <div className = "searchDiv">
       <h2>Search for a Pokémon!</h2>
       <input
-      className = "pokeSearch"
-      type = "search"
-      placeholder = "Serach your favorite Pokemon?"
-      value = {search}
-      onChange = {(e) => setSearch(e.target.value)}
-      onKeyDown={handleKeyPress}
+        className="pokeSearch"
+        type="search"
+        placeholder="Serach your favorite Pokemon?"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        onKeyDown={handleKeyPress}
       />
+      <button className="pokeButton" onClick={handleSearch}>
+        Search
+      </button>
     </div>
   );
 }
