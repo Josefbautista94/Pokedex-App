@@ -1,62 +1,83 @@
-  .descriptionDiv {
-    width: 50%;
-    min-height: 300px;
-    background-color: rgb(45, 45, 45);
-    color: white;
-    padding: 2rem;
-    margin-top: 2rem;
-    margin-left: 2rem;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    border: 2px solid #ca7b3b;
-    box-shadow: 0 0 20px #3b4cca;
-    font-family: 'Press Start 2P', cursive;
-    word-break: break-word;
-    overflow-y: auto;
-    
-  }
-  
+.infoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* <--- important change */
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
 
-.pokeImage {
-    width : 300px;
+.descriptionDiv {
+  flex: 1 1 400px;
+  min-height: 300px;
+  background-color: rgb(45, 45, 45);
+  color: white;
+  padding: 1.5rem; /* smaller padding to match better */
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-shadow: 0 0 20px #3b4cca;
+  border: 2px solid #ca7b3b;
+  font-family: 'Press Start 2P', cursive;
+  word-break: break-word;
+  overflow-y: auto;
+}
+
+.imageContainer {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* <--- align the top */
+  align-items: center;
+  min-height: 300px; /* <--- force it to have at least a certain height */
+}
+.pokeName {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
 .pokemonImageDiv {
-    position: absolute;                 
-    top: 50%;                           
-    right: 15rem;                        
-    transform: translateY(-55%);        
-    
-    display: flex;
-    justify-content: center;          
-    align-items: center;              
-    
-    background-color: rgb(45, 45, 45);
-    width: 300px;
-    height: 300px;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    border: 2px solid #ca7b3b;
-    box-shadow: 0 0 15px #3b4cca;
-    
-    
+  background-color: rgb(45, 45, 45);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ca7b3b;
+  box-shadow: 0 0 15px #3b4cca;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokeImage {
+  width: 250px;
+}
+
+@media (max-width: 600px) {
+  .infoDiv {
+    flex-direction: column; /* 📱 Stack vertically on mobile */
+    align-items: center;
   }
 
-  @media (max-width: 600px) {
-  .pokemonImageDiv {
-    position: static;
-    margin: 2rem auto;
-    transform: none;
-    width: 200px;
-    height: 200px;
+  .imageContainer {
+    order: 1; /* 🥇 Show image first */
   }
 
   .descriptionDiv {
+    order: 2; /* 🥈 Show description after image */
     width: 80%;
     margin: 1rem auto;
     padding: 1rem;
+  }
+
+  .pokemonImageDiv {
+    width: 80%;
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .pokeImage {
+    width: 200px;
   }
 }
