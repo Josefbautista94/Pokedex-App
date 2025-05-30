@@ -1,0 +1,13 @@
+
+
+
+.mainDiv {
+    background: linear-gradient(to bottom right, #8b0000, #4b0000);
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: white;
+    font-family: sans-serif;
+
+}
