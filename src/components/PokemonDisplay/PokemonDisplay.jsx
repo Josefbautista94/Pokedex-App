@@ -8,8 +8,8 @@ export default function PokemonDisplay({ pokemon }) {
   return (
     <div className="infoDiv">
       <div className="descriptionDiv">{pokemon.flavorText}</div>
-      <div id="pokemonImageDiv">
-        <img className="pokeImage" src={pokemon.image} alt={pokemon.name} />
+      <div className="pokemonImageDiv">
+        <img className="pokeImage" src={pokemon.image} alt={pokemon.name || 'Pokemon'} />
       </div>
     </div>
   );

@@ -11,17 +11,17 @@ export default function SearchBar({ onSearch }) {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      handleSearch(e);
+      handleSearch();
     }
   };
 
   return (
-    <div className = "searchDiv">
+    <div className="searchDiv">
       <h2>Search for a Pokémon!</h2>
       <input
         className="pokeSearch"
         type="search"
-        placeholder="Serach your favorite Pokemon?"
+        placeholder="Search your favorite Pokémon?"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onKeyDown={handleKeyPress}
