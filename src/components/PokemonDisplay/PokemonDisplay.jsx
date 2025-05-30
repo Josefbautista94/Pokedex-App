@@ -1,4 +1,5 @@
 import "./PokemonDisplay.css";
+import PokemonInfo from "../../components/PokemonInfo/PokemonInfo";
 
 export default function PokemonDisplay({ pokemon }) {
   if (!pokemon) {
@@ -22,6 +23,11 @@ export default function PokemonDisplay({ pokemon }) {
             alt={pokemon.name || "Pokemon"}
           />
         </div>
+        <PokemonInfo
+          id={pokemon.id}
+          height={pokemon.height}
+          weight={pokemon.weight}
+        />
       </div>
     </div>
   );

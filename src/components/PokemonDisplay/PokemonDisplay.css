@@ -38,21 +38,26 @@
 }
 
 .pokemonImageDiv {
-  background-color: rgb(45, 45, 45);
+  background-color: #1b1b1b; /* dark retro frame */
   padding: 1rem;
   border-radius: 8px;
-  border: 2px solid #ca7b3b;
-  box-shadow: 0 0 15px #3b4cca;
+  border: 6px solid #ca7b3b; /* thick, pixel-card border */
+  box-shadow:
+    0 0 10px #3b4cca, /* outer glow */
+    inset 0 0 10px #3b4cca; /* inner glow */
   width: 300px;
   height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative; /* for pseudo-elements if needed */
 }
 
 .pokeImage {
   width: 250px;
+  image-rendering: pixelated; /* 🔥 make sprites more pixelated */
 }
+
 
 @media (max-width: 600px) {
   .infoDiv {
