@@ -4,6 +4,7 @@ import PokemonDisplay from "../../components/PokemonDisplay/PokemonDisplay";
 import pokeApi from "../../api/pokeApi";
 import "./MainPage.css";
 
+
 export default function MainPage() {
   const [pokemon, setPokemon] = useState(null);
 
@@ -24,6 +25,9 @@ export default function MainPage() {
             name :res.data.name,
             image:res.data.sprites.front_default,
             flavorText,
+            id: res.data.id,
+            height: res.data.height,
+            weight: res.data.weight,
         })
 
     } catch (error) {
@@ -36,6 +40,7 @@ export default function MainPage() {
       <h1>Welcome to The Pokédex!</h1>
       <SearchBar onSearch={fetchPokemon} />
       <PokemonDisplay pokemon={pokemon} />
+    
     </div>
   );
 }
