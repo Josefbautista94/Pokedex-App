@@ -30,7 +30,7 @@ Welcome to my Pokedex App — a responsive and mobile-friendly web application t
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Josefbautista94/SBA308A.git
+   git clone https://github.com/Josefbautista94/Pokedex-App.git
    ```
 2. Navigate to the project directory:
    ```bash
