@@ -18,7 +18,7 @@ export default function PokemonInfo({ id, height, weight }) {
       <h2>Pokémon Info</h2>
       <ul>
         <li><strong>Pokédex No:</strong> #{id}</li>
-        <li><strong>Height:</strong> {feet}' {inches}" / {meters} m</li>
+        <li><strong>Height:</strong> {feet}' {inches}"ft/ {meters} m</li>
         <li><strong>Weight:</strong> {pounds} lbs / {kilograms} kg</li>
       </ul>
     </div>
