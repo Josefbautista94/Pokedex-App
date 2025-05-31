@@ -12,7 +12,7 @@ export default function SearchBar({ onSearch }) {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      e.preventDefault(); // ✅ prevent page reload on mobile
+      e.preventDefault(); //  prevents reload
       handleSearch();
     }
   };
@@ -22,7 +22,7 @@ export default function SearchBar({ onSearch }) {
       <h2>Search for a Pokémon!</h2>
       <input
         className="pokeSearch"
-        type="search"
+        type="text" /*  changed to text */
         placeholder="Search your favorite Pokémon?"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
