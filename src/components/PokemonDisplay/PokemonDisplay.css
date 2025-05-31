@@ -1,18 +1,18 @@
 .infoDiv {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* <--- important change */
+  align-items: flex-start;
   gap: 2rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 }
 
 .descriptionDiv {
+  order: 1;
   flex: 1 1 400px;
-  min-height: 300px;
   background-color: rgb(45, 45, 45);
   color: white;
-  padding: 1.5rem; /* smaller padding to match better */
+  padding: 1.5rem;
   border-radius: 10px;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -24,13 +24,15 @@
 }
 
 .imageContainer {
+  order: 2;
   flex: 1 1 300px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* <--- align the top */
+  justify-content: flex-start;
   align-items: center;
-  min-height: 300px; /* <--- force it to have at least a certain height */
+  gap: 1rem; /* space between Name, Image, and Info */
 }
+
 .pokeName {
   font-size: 1.5rem;
   margin-bottom: 1rem;
@@ -38,51 +40,63 @@
 }
 
 .pokemonImageDiv {
-  background-color: #1b1b1b; /* dark retro frame */
+  background-color: rgb(45, 45, 45);
   padding: 1rem;
   border-radius: 8px;
-  border: 6px solid #ca7b3b; /* thick, pixel-card border */
+  border: 6px solid #ca7b3b;
   box-shadow:
-    0 0 10px #3b4cca, /* outer glow */
-    inset 0 0 10px #3b4cca; /* inner glow */
+    0 0 10px #3b4cca,
+    inset 0 0 10px #3b4cca;
   width: 300px;
   height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* for pseudo-elements if needed */
 }
 
 .pokeImage {
   width: 250px;
-  image-rendering: pixelated; /* 🔥 make sprites more pixelated */
+  image-rendering: pixelated;
 }
 
+.pokemonInfo {
+  background-color: rgb(45, 45, 45);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #ca7b3b;
+  box-shadow: 0 0 15px #3b4cca;
+  color: white;
+  width: 300px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
 
-@media (max-width: 600px) {
+/* Mobile Styles */
+@media (max-width: 800px) {
   .infoDiv {
-    flex-direction: column; /* 📱 Stack vertically on mobile */
+    flex-direction: column;
     align-items: center;
   }
 
   .imageContainer {
-    order: 1; /* 🥇 Show image first */
-  }
-
-  .descriptionDiv {
-    order: 2; /* 🥈 Show description after image */
     width: 80%;
-    margin: 1rem auto;
-    padding: 1rem;
   }
 
   .pokemonImageDiv {
-    width: 80%;
+    width: 100%;
     margin: 1rem auto;
-    padding: 1rem;
   }
 
   .pokeImage {
     width: 200px;
+  }
+
+  .descriptionDiv {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .pokemonInfo {
+    width: 80%;
   }
 }
