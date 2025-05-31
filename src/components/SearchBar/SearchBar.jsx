@@ -23,7 +23,7 @@ export default function SearchBar({ onSearch }) {
       <input
         className="pokeSearch"
         type="text" /*  changed to text */
-        placeholder="Search your favorite Pokémon?"
+        placeholder="Search A Pokémon!"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onKeyDown={handleKeyPress}
