@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./SearchBar.css";
+
 export default function SearchBar({ onSearch }) {
   const [search, setSearch] = useState("");
 
@@ -11,6 +12,7 @@ export default function SearchBar({ onSearch }) {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
+      e.preventDefault(); // ✅ prevent page reload on mobile
       handleSearch();
     }
   };
