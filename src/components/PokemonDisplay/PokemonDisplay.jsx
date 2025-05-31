@@ -13,7 +13,10 @@ export default function PokemonDisplay({ pokemon }) {
 
   return (
     <div className="infoDiv">
+      {/* Description Left on Desktop */}
       <div className="descriptionDiv">{pokemon.flavorText}</div>
+
+      {/* Image, Name, Info Together */}
       <div className="imageContainer">
         <h1 className="pokeName">{capitalizeFirstLetter(pokemon.name)}</h1>
         <div className="pokemonImageDiv">
@@ -23,6 +26,7 @@ export default function PokemonDisplay({ pokemon }) {
             alt={pokemon.name || "Pokemon"}
           />
         </div>
+        {/* Pokémon Info */}
         <PokemonInfo
           id={pokemon.id}
           height={pokemon.height}

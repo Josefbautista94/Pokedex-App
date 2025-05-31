@@ -1,31 +1,25 @@
 import "./PokemonInfo.css";
 
 export default function PokemonInfo({ id, height, weight }) {
-  const ft = `${Math.floor((height * 3.937) / 12)}.${Math.round(
-    (height * 3.937) % 12
-  )}`;
+  if (id === undefined || height === undefined || weight === undefined) {
+    return <div className="pokemonInfo">Loading...</div>;
+  }
 
-  const m = height / 10;
+  const totalInches = height * 3.937;
+  const feet = Math.floor(totalInches / 12);
+  const inches = Math.round(totalInches % 12);
+  const meters = (height / 10).toFixed(1);
 
-  const kg = weight / 10;
+  const pounds = (weight * 0.220462).toFixed(1);
+  const kilograms = (weight / 10).toFixed(1);
 
-  const lbs = (weight * 0.220462).toFixed(1);
   return (
     <div className="pokemonInfo">
-      <h2>Pokemon Info</h2>
+      <h2>Pokémon Info</h2>
       <ul>
-        <li>
-          <strong>Pokédex No:</strong>
-          {id}
-        </li>
-        <li>
-          <strong>Height:</strong>
-          {ft}ft / {m}m
-        </li>
-        <li>
-          <strong>Weight:</strong>
-          {lbs}lbs / {kg}kg 
-        </li>
+        <li><strong>Pokédex No:</strong> #{id}</li>
+        <li><strong>Height:</strong> {feet}' {inches}" / {meters} m</li>
+        <li><strong>Weight:</strong> {pounds} lbs / {kilograms} kg</li>
       </ul>
     </div>
   );
