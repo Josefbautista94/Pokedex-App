@@ -1,36 +1,59 @@
 .pokeSearch {
-    width: 50%;
-    display: flex;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    background-color: rgb(45, 45, 45);
-    font-weight: bold;
-    color: aliceblue;
-    border-color: aliceblue;
-    text-align: center;
-
+  width: 50%;
+  max-width: 400px; /* 🔥 limit on big screens */
+  min-width: 250px; /* 🔥 better on mobile screens */
+  padding: 0.75rem 1rem; /* 📱 bigger padding for better tapping */
+  margin-bottom: 1rem;
+  background-color: rgb(45, 45, 45);
+  font-weight: bold;
+  color: aliceblue;
+  border: 2px solid aliceblue;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .pokeSearch::placeholder {
-    color: lightgray;
-    opacity: 1;
-    text-align: center;
-
+  color: lightgray;
+  opacity: 1;
+  text-align: center;
 }
 
 .pokeButton {
-    background-color: aliceblue;
-    color: black;
-    border: 2px solid #ca7b3b;
-    box-shadow: 0 0 20px #3b4cca;;
-    font-weight: bold;
+  background-color: aliceblue;
+  color: black;
+  border: 2px solid #ca7b3b;
+  box-shadow: 0 0 20px #3b4cca;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem; /* 📱 bigger click area */
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+/* 🔥 Subtle hover effect for desktop */
+.pokeButton:hover {
+  background-color: #ca7b3b;
+  color: white;
+  transform: scale(1.05);
 }
 
 .searchDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
+/* 🔥 Mobile-specific tweaks */
+@media (max-width: 600px) {
+  .pokeSearch {
+    width: 80%;
+  }
+
+  .pokeButton {
+    width: 80%;
+    margin-top: 0.5rem;
+  }
+}
