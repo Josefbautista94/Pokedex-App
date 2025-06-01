@@ -42,7 +42,7 @@ Welcome to my Pokedex App — a responsive and mobile-friendly web application t
 
 ## 📸 Screenshots
 
-*(Insert screenshots here if you'd like)*
+Coming soon
 
 ---
 
