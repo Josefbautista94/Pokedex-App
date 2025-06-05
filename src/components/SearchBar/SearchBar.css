@@ -3,7 +3,6 @@
   max-width: 400px;
   min-width: 250px;
   padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
   background-color: rgb(45, 45, 45);
   font-weight: bold;
   color: aliceblue;
@@ -58,11 +57,9 @@
     font-size: 0.6rem; /* ⬅️ button font smaller on mobile too */
   }
 }
-/* Add this at the bottom of SearchBar.css */
 .suggestionsList {
   list-style: none;
   padding: 0;
-  margin: 0.5rem 0 0;
   background-color: rgb(45, 45, 45);
   border: 2px solid #ca7b3b;
   border-radius: 8px;
