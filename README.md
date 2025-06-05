@@ -42,7 +42,7 @@ Welcome to my Pokedex App — a responsive and mobile-friendly web application t
 
 ## 📸 Screenshots
 
-In Future Update
+Coming soon
 
 ---
 
@@ -79,10 +79,3 @@ In Future Update
 
 ---
 
-### 💾 **Quick Git Commands**
-
-```bash
-git add README.md
-git commit -m "docs: add project README with WIP notice"
-git push origin main
-```
