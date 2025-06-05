@@ -72,9 +72,7 @@ export default function SearchBar({ onSearch }) {
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}
       />
-      <button className="pokeButton" onClick={handleSearch}>
-        Search
-      </button>
+     
 
       {/* ⬇ Suggestions Dropdown */}
       {suggestions.length > 0 && (
@@ -90,6 +88,9 @@ export default function SearchBar({ onSearch }) {
           ))}
         </ul>
       )}
+       <button className="pokeButton" onClick={handleSearch}>
+        Search
+      </button>
     </div>
   );
 
