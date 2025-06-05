@@ -86,6 +86,11 @@
   color: white;
 }
 
+.suggestionItem.active {
+  background-color: #e3b600;
+  color: white;
+}
+
 @media (max-width: 600px) {
   .suggestionsList {
     max-width: 80%;
