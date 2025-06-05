@@ -6,6 +6,7 @@ export default function SearchBar({ onSearch }) {
   const [search, setSearch] = useState("");
   const [allPokemon, setAllPokemon] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(-1); // -1 means no selection
 
   //Fetch all Pokemon names once when the component mounts
   useEffect(() => {
@@ -24,11 +25,11 @@ export default function SearchBar({ onSearch }) {
     fetchAllPokemon();
   }, []);
 
-
   const handleSearch = () => {
     if (search.trim()) {
       onSearch(search.trim().toLowerCase());
       setSuggestions([]); // Clear suggestions after search
+      setSelectedIndex(-1); // Reset selected index
     }
   };
 
@@ -37,20 +38,35 @@ export default function SearchBar({ onSearch }) {
     const value = e.target.value;
     setSearch(value);
 
-    if(value.length >0){
-      const filtered = allPokemon.filter((name)=>
-      name.startsWith(value.toLowerCase())
-    );
-    setSuggestions(filtered.slice(0, 5)); // Limit suggestions to 5
-    }else{
+    if (value.length > 0) {
+      const filtered = allPokemon.filter((name) =>
+        name.startsWith(value.toLowerCase())
+      );
+      setSuggestions(filtered.slice(0, 5)); // Limit suggestions to 5
+    } else {
       setSuggestions([]); // Clear suggestions if input is empty
+      setSelectedIndex(-1); // Reset selected index
     }
-  }
+  };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault(); //  prevents reload
-      handleSearch();
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setSelectedIndex((prev) =>
+        prev < suggestions.length - 1 ? prev + 1 : 0
+      );
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setSelectedIndex((prev) =>
+        prev > 0 ? prev - 1 : suggestions.length - 1
+      );
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (selectedIndex >= 0 && selectedIndex < suggestions.length) {
+        handleSuggestionClick(suggestions[selectedIndex]);
+      } else {
+        handleSearch();
+      }
     }
   };
 
@@ -59,7 +75,8 @@ export default function SearchBar({ onSearch }) {
     setSearch(name);
     onSearch(name);
     setSuggestions([]); // Clear suggestions after selection
-  }
+    setSelectedIndex(-1); // Reset selected index
+  };
 
   return (
     <div className="searchDiv">
@@ -70,17 +87,18 @@ export default function SearchBar({ onSearch }) {
         placeholder="Search A Pokémon!"
         value={search}
         onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
+        onKeyDown={handleKeyDown}
       />
-     
 
       {/* ⬇ Suggestions Dropdown */}
       {suggestions.length > 0 && (
         <ul className="suggestionsList">
-          {suggestions.map((name) => (
+          {suggestions.map((name, index) => (
             <li
               key={name}
-              className="suggestionItem"
+              className={`suggestionItem ${
+                index === selectedIndex ? "active" : ""
+              }`}
               onClick={() => handleSuggestionClick(name)}
             >
               {name.charAt(0).toUpperCase() + name.slice(1)}
@@ -88,10 +106,9 @@ export default function SearchBar({ onSearch }) {
           ))}
         </ul>
       )}
-       <button className="pokeButton" onClick={handleSearch}>
+      <button className="pokeButton" onClick={handleSearch}>
         Search
       </button>
     </div>
   );
-
 }
