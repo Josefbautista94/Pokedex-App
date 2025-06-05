@@ -85,3 +85,14 @@
   background-color: #ca7b3b;
   color: white;
 }
+
+@media (max-width: 600px) {
+  .suggestionsList {
+    max-width: 80%;
+    font-size: 0.6rem; /* smaller font on mobile */
+  }
+
+  .suggestionItem {
+    padding: 0.5rem 0.75rem;
+  }
+}
