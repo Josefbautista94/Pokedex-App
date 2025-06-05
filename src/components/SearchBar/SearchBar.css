@@ -58,3 +58,30 @@
     font-size: 0.6rem; /* ⬅️ button font smaller on mobile too */
   }
 }
+/* Add this at the bottom of SearchBar.css */
+.suggestionsList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  background-color: rgb(45, 45, 45);
+  border: 2px solid #ca7b3b;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #3b4cca;
+  max-width: 400px;
+  width: 100%;
+  text-align: left;
+}
+
+.suggestionItem {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #3b4cca;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  color: aliceblue;
+}
+
+.suggestionItem:hover {
+  background-color: #ca7b3b;
+  color: white;
+}
