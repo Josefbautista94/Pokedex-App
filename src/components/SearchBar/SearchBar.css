@@ -30,30 +30,20 @@
 .pokeButton {
   background-color: rgb(45, 45, 45);
   color: rgb(255, 255, 255);
-  border: 8px solid;
-  border-image: linear-gradient(
-    to bottom,
-    red 0%,
-    red 25%,
-    black 25%,
-    black 75%,
-    white 75%,
-    white 100%
-  ) 1; /* Pokéball colors */
+ 
   font-weight: bold;
   padding: 0.75rem 1.5rem;
   font-size: 0.7rem;
   border-radius: 12px;
   cursor: pointer;
   margin-top: 1rem;
-  transition: transform 0.5s ease, border-image 0.5s ease;
 }
 
 
 .pokeButton:hover {
   color: white;
   transform: scale(1.05);
- 
+ border-color: white;
 }
 
 .searchDiv {
